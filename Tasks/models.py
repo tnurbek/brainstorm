@@ -7,6 +7,3 @@ class Task(models.Model):
     answer = models.CharField(max_length=512)
     image = models.ImageField(blank=True)
 
-
-
-# Create your models here.
