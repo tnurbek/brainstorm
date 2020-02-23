@@ -3,6 +3,7 @@ from django.contrib.auth.models import Group
 from Task.models import Task
 from Option.models import Option
 
+
 class Group(Group):
     money = models.IntegerField()
     start = models.TimeField()
@@ -11,3 +12,14 @@ class Group(Group):
 
     def __str__(self):
         return self.name
+
+
+class Password(models.Model):
+    password = models.CharField(max_length=50)
+    group_id = models.ForeignKey(Group, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.group_id + ' ' + self.password
+
+
