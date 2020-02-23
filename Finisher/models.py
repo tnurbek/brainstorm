@@ -3,7 +3,7 @@ from User.models import Player
 from datetime import datetime
 
 class Finisher(models.Model):
-    finished_time = models.DateTimeField(default=datetime.now())
+    finished_time = models.DateTimeField()
     user_id = models.ForeignKey(Player, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -3,7 +3,7 @@ from Task.models import Task
 from datetime import datetime
 
 class Completed_task(models.Model):
-    finished = models.DateTimeField(default=datetime.now())
+    finished = models.DateTimeField()
     task_id = models.ForeignKey(Task, on_delete=models.CASCADE)
 
 
