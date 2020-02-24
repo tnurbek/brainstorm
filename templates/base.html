@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Base file</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<form action="{% url 'create_group' %}" method="get">
+    {% csrf_token %}
+    <div class="container">
+<!--        <div class="row">-->
+            <h1>Creation of group</h1>
+            <input name="group_name" placeholder="Enter group name..." type="text">
+            <p>money</p>
+            <label for="appt">Choose a time for your meeting:</label>
+            <input type="datetime-local" id="appt" name="start_time" value="2020-02-23T19:30" min="2020-02-23T00:00" max="2021-06-14T00:00">
+
+            <div class="form-group">
+                <label for="sel1">Select list:</label>
+                <select class="form-control" name="select" id="sel1">
+                    {% for option in options %}
+                    <option name="option-select"> {{ option.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button><a class="" href="{% url 'create_group' %}">SUBMIT</a></button>
+<!--        </div>-->
+    </div>
+</form>
+</body>
+</html>
