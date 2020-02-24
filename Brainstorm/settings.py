@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'Finisher',
     'Rating',
     'Completed_task',
+    'Account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
