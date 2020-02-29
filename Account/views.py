@@ -11,14 +11,11 @@ from User.models import Player
 def SignUp(request):
     if request.method == 'POST':
         form = SignUpFOrm(request.POST)
-
         if form.is_valid():
-            # enc_password = pbkdf2_sha256.encrypt(password, rounds=12000, salt_size=32)
-            # form.password1 = enc_password
             form.save()
-            return HttpResponse('good')
+            return render(request, 'registration/register.html', {'form':form})
         else:
-            return HttpResponse('wrong')
+            return render(request, 'registration/register.html', {'form':form})
     else:
         form = SignUpFOrm()
         return render(request, 'registration/register.html', {'form':form})
@@ -34,11 +31,11 @@ def SignIn(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('good')
+                    return render(request, 'registration/login.html', {'form': form})
                 else:
-                    return HttpResponse('Disabled account')
+                    return render(request, 'registration/login.html', {'form': form})
             else:
-                return HttpResponse('Invalid login')
+                return render(request, 'registration/login.html', {'form': form})
     else:
         form = LoginForm()
 
