@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from Group.models import Group
 from Option.models import Option
 from Task.models import Task
 from User.models import Player
-
 # g1 = Group.objects.create(name='')
 # users = Player.objects.all()
 
@@ -12,26 +11,24 @@ def initial(request):
     return render(request, 'base.html', {'options':options})
 
 def create_group(request):
-
-    # if request.GET.get('group_name'):
-    #     name = request.GET.get('group_name')
+    #
+    # if request.method == "POST":
+    a = request.POST.getlist('select', 'public')[0]
+    name = request.POST.get('group_name')
     # else:
-    #     name = 'dwfwefewf'
+    #     a = 'public'
+    #     name = 'nobody'
 
-    name = request.GET.get('group_name')
-    # money = request.GET.get('money_field')
+    # name = request.POST['group_name']
     # start = request.GET.get('start_time')
     start = '19:25:25'
-    option_name = 'public'
-    # option_name = request.GET.get('select')
+    # option_name = 'public'
+    # option_name = request.GET.get('value')
 
-    print(option_name)
-    print(name)
-    option = Option.objects.get(name=option_name)
+    option = Option.objects.get(name=a)
 
     money = 0
-    # start = '12:23:23'
-    # option = Option.objects.get(pk=2)
+
     task_id = Task.objects.get(pk=1)
     g = Group.objects.create(name=name, money=money, start=start, task_id=task_id, option_id=option)
     owner = Player.objects.get(username=request.user.username)

@@ -3,27 +3,28 @@
     <title>Base file</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<form action="{% url 'create_group' %}" method="get">
+<form action="{% url 'create_group' %}" method="post">
     {% csrf_token %}
     <div class="container">
 <!--        <div class="row">-->
             <h1>Creation of group</h1>
-            <input name="group_name" placeholder="Enter group name..." type="text">
-            <p>money</p>
+            <input class="form-control" name="group_name" placeholder="Enter group name..." type="text">
+            <p class="">money</p>
             <label for="appt">Choose a time for your meeting:</label>
-            <input type="datetime-local" id="appt" name="start_time" value="2020-02-23T19:30" min="2020-02-23T00:00" max="2021-06-14T00:00">
+            <input class="form-control" type="time" id="appt" name="start_time" value="2020-02-23T19:30" min="2020-02-23T00:00" max="2021-06-14T00:00">
 
             <div class="form-group">
                 <label for="sel1">Select list:</label>
                 <select class="form-control" name="select" id="sel1">
                     {% for option in options %}
-                    <option name="option-select"> {{ option.name }}</option>
+                    <option name="option-select" value="{{ option.name }}"> {{ option.name }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <button><a class="" href="{% url 'create_group' %}">SUBMIT</a></button>
+            <input type="submit">SUBMIT</a></input>
 <!--        </div>-->
     </div>
 </form>
