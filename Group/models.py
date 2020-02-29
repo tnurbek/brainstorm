@@ -18,8 +18,7 @@ class Password(models.Model):
     password = models.CharField(max_length=50)
     group_id = models.ForeignKey(Group, on_delete=models.CASCADE)
 
-
     def __str__(self):
-        return self.group_id + ' ' + self.password
+        return self.group_id
 
 

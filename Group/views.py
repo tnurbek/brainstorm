@@ -3,6 +3,7 @@ from Group.models import Group
 from Option.models import Option
 from Task.models import Task
 from User.models import Player
+from .models import Password
 # g1 = Group.objects.create(name='')
 # users = Player.objects.all()
 
@@ -11,8 +12,7 @@ def initial(request):
     return render(request, 'base.html', {'options':options})
 
 def create_group(request):
-    #
-    # if request.method == "POST":
+
     a = request.POST.getlist('select', 'public')[0]
     name = request.POST.get('group_name')
     # else:
@@ -34,9 +34,15 @@ def create_group(request):
     owner = Player.objects.get(username=request.user.username)
     g.user_set.add(owner)
     if option.name == 'private':
-        return render(request, 'group/password.html')
+        return render(request, 'group/password.html', {'g_id':g.id})
     elif option.name == 'public':
         return render(request, 'group/index.html')
 
+def validate_group(request, pk):
+    password = request.POST.get('password')
+    group = Group.objects.get(pk=pk)
+    p = Password.objects.create(password=password, group_id=group)
+    return render(request, 'group/index.html')
 
-# Create your views here.
+
+
