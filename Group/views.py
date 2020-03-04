@@ -9,7 +9,7 @@ from .models import Password
 
 def initial(request):
     options = Option.objects.all()
-    return render(request, 'base.html', {'options':options})
+    return render(request, 'group.html', {'options':options})
 
 def create_group(request):
 

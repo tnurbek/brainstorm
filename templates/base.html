@@ -1,32 +1,121 @@
 <html>
 <head>
     <title>Base file</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-<form action="{% url 'create_group' %}" method="post">
-    {% csrf_token %}
-    <div class="container">
-<!--        <div class="row">-->
-            <h1>Creation of group</h1>
-            <input class="form-control" name="group_name" placeholder="Enter group name..." type="text">
-            <p class="">money</p>
-            <label for="appt">Choose a time for your meeting:</label>
-            <input class="form-control" type="time" id="appt" name="start_time" value="2020-02-23T19:30" min="2020-02-23T00:00" max="2021-06-14T00:00">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-            <div class="form-group">
-                <label for="sel1">Select list:</label>
-                <select class="form-control" name="select" id="sel1">
-                    {% for option in options %}
-                    <option name="option-select" value="{{ option.name }}"> {{ option.name }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <input type="submit">SUBMIT</a></input>
-<!--        </div>-->
-    </div>
-</form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body class="custom-cursor">
+	<div class="circle-cursor circle-cursor--outer"></div>
+	<div class="circle-cursor circle-cursor--inner"></div>
+	<header id="masthead" class="site-header header-3 both-types no-transition" data-header-fixed="true" data-fixed-initial-offset="150">
+	</header>
+
+	
+	<nav class="navbar navbar-expand-md navbar-dark justify-content-between fixed-top" id="navbar">
+  		<a class="navbar-brand" href="base.html">brainstorm</a>
+
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    	<span class="navbar-toggler-icon"></span>
+  		</button>
+
+  		<div class="collapse navbar-collapse justify-content-between fixed" id="collapsibleNavbar">
+    		<ul class="navbar-nav">
+      			<li class="nav-item">
+        			<a class="nav-link" href="#">link 1</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="#">link 2</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="#">link 3</a>
+		      	</li>
+    		</ul>
+    		<ul class="navbar-nav" style="">
+      			<li class="nav-item">
+        			<a class="nav-link" href="#">login</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="#">register</a>
+		      	</li>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="#">quit</a>
+		      	</li>
+    		</ul>
+  		</div>
+	</nav>
+<!-- 	<header id="header">
+		<div class="container-fluid text-center home">
+			<div id="particles-js">
+				<canvas class="particles-js-canvas-el" width="1192" height="823" style="width: 100%; height: 100%;"></canvas>
+			</div>
+			<div class="home-content">
+				<h1>brainstorm</h1>
+				<p>project of life or xaip</p>
+			</div>
+		</div>
+	</header> -->
+
+		<div class="container-fluid text-center home">
+			<div id="particles-js">
+				<canvas class="particles-js-canvas-el" width="1192" height="823" style="width: 100%; height: 100%;"></canvas>
+			</div>
+		</div>
+
+
+		<div class="section container-fluid main-page text-center mt-5" data-cursor-class="cursor-link dark-color">
+
+			<input data-cursor-class="cursor-link dark-color" type="submit" name="button" value="GET STARTED" class="btn border border-dark">
+		</div>
+
+		<section class=" clb__light_section">
+			<div class="demo-filter">
+				
+			</div>
+		</section>
+
+		<!-- <script>
+			alert("Enter OK to continue...");
+		</script> -->
+
+		<!-- <div class="alert alert-success mt-3">
+		    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+		    <a href="#" class="close" data-dismiss="alert">&times;</a>
+		</div>
+
+		<div class="alert alert-success mt-3">
+		    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+		    <a href="#" class="close mt-0" data-dismiss="alert">&times;</a>
+		</div>
+
+		<div class="alert alert-success mt-3">
+		    <strong>Success!</strong> This alert box could indicate a successful or positive action.
+		    <a href="#" class="close mt-0" data-dismiss="alert">&times;</a>
+		</div> -->
+
+	<script src="js/particles.js"></script>
+	<script src="js/app.js"></script>
+
+	<script src="js/main.js"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'UA-137041416-1');
+	</script>
+	<!-- Crisp ChatBox -->
+	<script type="text/javascript">
+		window.$crisp=[];window.CRISP_WEBSITE_ID="addb44ba-5698-406d-bca9-41c33aec5e76";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+	</script>
+
 </body>
 </html>
